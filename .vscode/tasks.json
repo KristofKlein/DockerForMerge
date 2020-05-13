@@ -1,0 +1,65 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create 2018CU29!",
+            "type": "shell",
+            "command": "${workspaceFolder}\\Powershell\\18CU29.ps1",
+            "problemMatcher": [],
+            "args": [
+                "${input:DevLicenseFile}"
+            ],
+        },
+        {
+            "label": "Create Based on DVD! (like 2013R2)",
+            "type": "shell",
+            "command": "${workspaceFolder}\\Powershell\\DVD.ps1",
+            "problemMatcher": [],
+            "args": [
+                "${input:DevLicenseFile}", "${input:DVDPath}", "${input:DvdCountry)"
+            ]
+        },
+        {
+            "label": "NAV Docker Images!",
+            "type": "shell",
+            "command": "${workspaceFolder}\\Powershell\\Get-NavCOntainerImages.ps1",
+            "args": [
+                "${input:TagsFilter}", "${input:RegType}"
+            ],
+            "problemMatcher": []
+        },
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "TagsFilter",
+            "description": "Type in a Filter for the return Tags of NAV containers",
+            "default": "W1"
+        },
+        {
+            "type": "promptString",
+            "id": "DevLicenseFile",
+            "description": "Provide Full Path to the License File"
+        },
+        {
+            "type": "promptString",
+            "id": "DVDPath",
+            "description": "Provide Full Path to the downloaded DVD Content"
+        },
+        {
+            "type": "promptString",
+            "id": "DvdCountry",
+            "description": "Provide DVD Country Code e.g. W1, DE, NO, DK",
+            "default": "W1"
+        },
+        {
+            "type": "pickString",
+            "id": "RegType",
+            "description": "Where to look for? BC or NAV?",
+            "options": ["BC", "NAV"],
+            "default": "BC"
+        },
+    ]
+}
