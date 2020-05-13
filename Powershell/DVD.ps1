@@ -17,7 +17,7 @@ if ($licenseFile -eq '') {
     exit
 } 
 
-if (!Get-Item -Path (Join-Path $DVDPath -ChildPath 'Prerequisite Components\microsoft-windows-netfx3-ondemand-package.cab'))
+if (!(Get-Item -Path (Join-Path $DVDPath -ChildPath 'Prerequisite Components\microsoft-windows-netfx3-ondemand-package.cab')))
 {    
     Write-Host '###### You miss the prerequisite netfx3! ######' -ForegroundColor Red
     exit
