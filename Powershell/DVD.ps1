@@ -17,22 +17,22 @@ if ($licenseFile -eq '') {
     exit
 } 
 
-if (!(Get-Item -Path (Join-Path $DVDPath -ChildPath 'Prerequisite Components\microsoft-windows-netfx3-ondemand-package.cab')))
-{    
-    Write-Host '###### You miss the prerequisite netfx3! ######' -ForegroundColor Red
-    exit
+if (!(Get-Item -Path (Join-Path $DVDPath -ChildPath 'Prerequisite Components\microsoft-windows-netfx3-ondemand-package.cab'))) {    
+    Write-Host '###### You miss the prerequisite netfx3! ######' -ForegroundColor Yellow
+    Write-Host '###### Try to get it for you! ######' -ForegroundColor Yellow
+    Copy-Item -Path "N:\MS Nav\Tools\.NET FX 3\microsoft-windows-netfx3-ondemand-package.cab" -Destination Join-Path $DVDPath -ChildPath 'Prerequisite Components\' -ErrorAction Stop
 }
 
 Write-Host '###### Create Container ######' -ForegroundColor Blue
 New-NavContainer -accept_eula `
-                 -containerName N2013R2CU6 `
-                 -navDvdPath $DVDPath `
-                 -navDvdCountry $DvdCountry `
-                 -updateHosts `
-                 -includeCSide `
-                 -isolation 'hyperv' `
-                 -licenseFile $licenseFile `
-                 -useGenericImage 'mcr.microsoft.com/dynamicsnav:generic-ltsc2016' `
-                 -donotExportObjectsTotext
+    -containerName DVDNAV `
+    -navDvdPath $DVDPath `
+    -navDvdCountry $DvdCountry `
+    -updateHosts `
+    -includeCSide `
+    -isolation 'hyperv' `
+    -licenseFile $licenseFile `
+    -useGenericImage 'mcr.microsoft.com/dynamicsnav:generic-ltsc2016' `
+    -donotExportObjectsTotext
     
 Write-Host 'Thats all Folks' -ForegroundColor Blue
