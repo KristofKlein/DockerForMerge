@@ -18,7 +18,9 @@
             "command": "${workspaceFolder}\\Powershell\\DVD.ps1",
             "problemMatcher": [],
             "args": [
-                "${input:DevLicenseFile}", "${input:DVDPath}", "${input:DvdCountry)"
+                "${input:DevLicenseFile}",
+                "${input:DVDPath}",
+                "${input:DvdCountry}"
             ]
         },
         {
@@ -26,7 +28,8 @@
             "type": "shell",
             "command": "${workspaceFolder}\\Powershell\\Get-NavCOntainerImages.ps1",
             "args": [
-                "${input:TagsFilter}", "${input:RegType}"
+                "${input:TagsFilter}",
+                "${input:RegType}"
             ],
             "problemMatcher": []
         },
@@ -58,7 +61,10 @@
             "type": "pickString",
             "id": "RegType",
             "description": "Where to look for? BC or NAV?",
-            "options": ["BC", "NAV"],
+            "options": [
+                "BC",
+                "NAV"
+            ],
             "default": "BC"
         },
     ]
