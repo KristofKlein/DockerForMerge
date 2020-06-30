@@ -12,7 +12,9 @@ You most likely have to run VSC as Administrator...
 ## BC2019CU13.ps1
 Task to run: Create BC 2019 Spring CU13!
 
-This option only needs a license file.
+You need to provide a incense filepath -> Small Tip: When you stand on a file in the file explorer hit in the top menu Home:Copy Path!
+You will be asked for a user name and password (8char, 1 number, 1 spec. char, 1 upper case)
+
 It will keep navcontainer up2date.
 
 ## Install-NavContainerHelper.ps1

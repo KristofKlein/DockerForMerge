@@ -1,5 +1,7 @@
 param ([String]$licenseFile = '')
 
+$licenseFile = $licenseFile.TrimStart('"').TrimEnd('"')
+
 Write-Host '###### Update Nav Containerhelper! ######' -ForegroundColor Blue
 & (Join-Path -Path $PSScriptRoot -ChildPath 'Install-NavContainerHelper.ps1')
 
@@ -13,7 +15,7 @@ New-NavContainer -accept_eula `
     -isolation 'hyperv' `
     -includeCSide `
     -licenseFile $licenseFile `
-    -doNotExportObjectsToText
-
+    -doNotExportObjectsToText `
+    -auth UserPassword
 
 Write-Host 'Thats all Folks' -ForegroundColor Blue
