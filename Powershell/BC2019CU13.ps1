@@ -3,21 +3,17 @@ param ([String]$licenseFile = '')
 Write-Host '###### Update Nav Containerhelper! ######' -ForegroundColor Blue
 & (Join-Path -Path $PSScriptRoot -ChildPath 'Install-NavContainerHelper.ps1')
 
-
-if ($licenseFile -eq '') {
-Write-Host '###### You have to provide license Filepath! ######' -ForegroundColor Red  
-Exit  
-} else {
 Write-Host '###### Create Container ######' -ForegroundColor Blue
 New-NavContainer -accept_eula `
     -accept_outdated `
-    -containerName 'N2018CU29' `
-    -imageName 'mcr.microsoft.com/dynamicsnav:2018-cu29' `
+    -containerName 'BC14C13' `
+    -imageName 'mcr.microsoft.com/businesscentral/onprem:14.13.42648.0-w1' `
     -updateHosts `
     -locale 'da-DK' `
     -isolation 'hyperv' `
+    -includeCSide `
     -licenseFile $licenseFile `
-    -includeCSide
+    -doNotExportObjectsToText
+
 
 Write-Host 'Thats all Folks' -ForegroundColor Blue
-}
