@@ -4,13 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Create BC 2019 Spring CU13!",
+            "label": "Create latest BC on artifacts!",
             "type": "shell",
-            "command": "${workspaceFolder}\\Powershell\\BC2019CU13.ps1",
+            "command": "${workspaceFolder}\\Powershell\\BC16Latest.ps1",
             "problemMatcher": [],
-            "args": [
-                "${input:DevLicenseFile}"
-            ],
         }
     ],
     "inputs": [
