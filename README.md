@@ -38,5 +38,7 @@ we have seen so far:
 
 - Problems with Username and Password:
   - make sure you are connected to the Hansen network (via Checkpoint VPN if @home or just be On-Site connected to the internal network)
+    - emergancy exit: change within the powershell script: BC16Latest.ps1 the parameter -auth from Windows to UserPassword
+      - if you do: the Password must be at least 8 chards long, at least 1 number, 1 Uppercase and 1 Special Char (MS SQL default rules)
   
 # That's all Folks!
