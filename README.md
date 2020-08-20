@@ -36,4 +36,7 @@ we have seen so far:
   
   after you are done with the Container startup
 
+- Problems with Username and Password:
+  - make sure you are connected to the Hansen network (via Checkpoint VPN if @home or just be On-Site connected to the internal network)
+  
 # That's all Folks!
